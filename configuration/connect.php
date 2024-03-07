@@ -5,7 +5,7 @@
     define('HOST','localhost');
     define('DATABASENAME','crud-mvc-poo-php');
     define('USER','root');
-    define('PASSWORD','root');
+    define('PASSWORD','');
 
     class Connect{
         protected $connection;
@@ -23,9 +23,10 @@
             catch (PDOException $e)
             {
                 echo "ERRO".$e->getMessage();
+                die();
             }
         }
     }
     
-
+    $testConecction = new Connect();
 ?>
