@@ -28,5 +28,4 @@
         }
     }
     
-    $testConecction = new Connect();
 ?>
