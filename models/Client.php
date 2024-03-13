@@ -19,6 +19,14 @@
             return $resultQuery;
 
         }
+        public function delete($id)
+        {
+            $sqlDelete = "DELETE FROM clients WHERE id = 2";
+            $stm = $this->connection->prepare($sqlDelete);
+            $stm->bind_param("i", $id);
+            return $stm->execute();
+
+        }
     }
 
 ?>
