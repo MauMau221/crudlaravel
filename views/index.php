@@ -6,30 +6,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Laravel curso</title>
+    <link href="css/index.css" rel="stylesheet">
+    <title>Clients</title>
 </head>
 
 <body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($resultData as $data) : ?>
+    <h1>Clients List</h1>
+    <div>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><?php echo $data['id'] ?></td>
-                    <td><?php echo $data['name'] ?></td>
-                    <td><?php echo $data['email'] ?></td>
-                    <td><?php echo $data['phone'] ?></td>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($resultData as $data) : ?>
+                    <tr>
+                        <td><?php echo $data['id'] ?></td>
+                        <td><?php echo $data['name'] ?></td>
+                        <td><?php echo $data['email'] ?></td>
+                        <td><?php echo $data['phone'] ?></td>
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <td><button type="button" class="btn btn-outline-primary">Edit</button></td>
+                            <td>
+                                <a href="?action=delete&id=<?php echo $data['id']; ?>" class="btn btn-outline-primary" onclick="return confirm('Tem certeza que deseja excluir este cliente?')">Delete</a>
+                            </td>
+                        </div>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

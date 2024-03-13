@@ -19,6 +19,20 @@
             return $resultQuery;
 
         }
+        function delete($id){
+            try {
+                $sqlDelete = "DELETE FROM clients WHERE id = :id";
+                $stmt = $this->connection->prepare($sqlDelete);
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmt->execute();
+                return true;
+                
+            } catch (PDOException $e) {
+                echo "Erro ao excluir o cliente: " . $e->getMessage();
+                return false;
+            }
+        }
+
     }
 
 ?>

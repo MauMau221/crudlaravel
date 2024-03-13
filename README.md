@@ -1,2 +1,2 @@
 # crudlaravel
-CRUD, MVC, POO, PHP 
+CRUD, MVC, POO, PHP e Bootstrap
